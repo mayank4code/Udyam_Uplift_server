@@ -69,7 +69,7 @@ router.post("/login", userAuth, async (req,res)=>{
             isAdmin: user.role===2?true:false
         };
         const token = jwt.sign(data, process.env.JWT_SECRET);
-
+        console.log(req.body);
         res.status(200).json({success: true, message: "Logged in successfully", token});
 
     } catch(err){
